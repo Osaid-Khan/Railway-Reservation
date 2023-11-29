@@ -1,7 +1,6 @@
 ﻿//using Microsoft.EntityFrameworkCore;
 using System;
 using TrainEase.Models;
-
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -11,6 +10,8 @@ namespace TrainEase.Data
     {
         public TrainEaseDbContext() : base("name=TrainEaseDBEntities")
         {
+            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
         }
 
         public DbSet<Train> Trains { get; set; }
